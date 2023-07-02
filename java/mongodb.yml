@@ -1,5 +1,6 @@
 - name: Setup MongoDB
   hosts: all
+  become: yes
   tasks:
     - name: Copy MongoDB Repo file
       ansible.builtin.copy:
@@ -19,5 +20,5 @@
     - name: Start MongoDB Service
       ansible.builtin.systemd:
         state: restarted
-        name: mongodb
+        name: mongod
         enabled: true
